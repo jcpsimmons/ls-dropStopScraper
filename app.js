@@ -79,7 +79,7 @@ const formatForEmail = () => {
   emailBody = "There might be issues with the following SKUs:\n\n\n";
   Object.keys(store).map(key => {
     if (store[key].suspiciousSkus.length) {
-      emailBody += `https://livingspaces.com${key}: ${store[
+      emailBody += `https://livingspaces.com${key}     ${store[
         key
       ].suspiciousSkus.join(", ")}\n`;
     }
@@ -93,7 +93,5 @@ const formatForEmail = () => {
   await getSkus(filteredLinks);
   await checkSkuStatus();
   let emailBody = formatForEmail();
-  console.log(emailBody);
+  return emailBody;
 })();
-
-// try and deploy on n8n monday
